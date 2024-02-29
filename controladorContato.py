@@ -9,15 +9,14 @@ def existe_contato(codigo):
     return False
 
 def cadastrar_contatos(id, nome, telefone, email):
-    novo_contato = Contato(id=id, nome=nome, telefone=telefone, email=email)
+    novo_cotato = Contato(id=id, nome=nome, telefone=telefone, email=email)
     
-    if existe_contato(novo_contato.id):
-        print("Não foi possível adicionar o contato pois ele já existe na agenda.")
-        return 
+    if existe_contato(novo_cotato.id):
+        print("Não foi possível adicionar o contato pois ele já existe.")
     else:
-        lista_contatos.append(novo_contato)
+        lista_contatos.append(novo_cotato)
         print("Contato adicionado com sucesso!")
-        return novo_contato
+        return novo_cotato
         
 def editar_contato(id, nome, telefone, email):
     pass
