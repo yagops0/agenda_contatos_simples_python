@@ -1,36 +1,35 @@
 from contato import Contato
 
-lista_contatos : Contato = []
+lista_contatos = []
 
-def existeContato(codigo):
+def existe_contato(codigo):
     for c in lista_contatos:
-        if codigo in lista_contatos.id:
+        if c.id == codigo:
             return True
-        else:
-            return False
+    return False
 
-def cadastrarContatos(id, nome, telefone, email):
-    if existeContato(id):
-        return
+def cadastrar_contatos(id, nome, telefone, email):
+    novo_contato = Contato(id=id, nome=nome, telefone=telefone, email=email)
+    
+    if existe_contato(novo_contato.id):
+        print("Não foi possível adicionar o contato pois ele já existe na agenda.")
+        return 
     else:
-        novo_contato = Contato(id=id, nome=nome, telefone=telefone, email=email)
-        
         lista_contatos.append(novo_contato)
-        
+        print("Contato adicionado com sucesso!")
         return novo_contato
         
-def editarContato(id, nome, telefone, email):
+def editar_contato(id, nome, telefone, email):
     pass
 
-def consultarContatos():
+def consultar_contato():
     pass
 
-def pesquisarContato():
+def pesquisar_contato():
     pass
 
-def removerContato():
+def remover_contatos():
     pass
 
-def listarContato():
-    pass
-        
+def listar_contatos():
+    return lista_contatos

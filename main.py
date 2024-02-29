@@ -1,2 +1,1 @@
-from controladorContato import existeContato, cadastrarContatos
-
+from controladorContato import cadastrar_contatos, listar_contatos
