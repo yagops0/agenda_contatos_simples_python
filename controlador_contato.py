@@ -23,22 +23,29 @@ def cadastrar_contatos(c : Contato):
         print("Contato adicionado com sucesso!")
         return True
         
-def editar_contato(c):
-    for co in lista_contatos:
-      if existe_contato(c.id):
-          lista_contatos[retornar_indice(c.id)] = c
-          print("Contato alterado com sucesso!")
-          return True
-    return False
+def editar_contatos(c):
+    if existe_contato(c.id):
+        lista_contatos[retornar_indice(c.id)] = c
+        print("Contato alterado com sucesso!")
+        return True
+    else:
+        print("Não foi possível alterar o contato o contato.")
+        return False
 
-def consultar_contato():
-    pass
+def pesquisar_contatos(codigo):
+    for c in lista_contatos:
+        if existe_contato(codigo):
+            if codigo == c.id:
+                return c
+    return 
 
-def pesquisar_contato():
-    pass
-
-def remover_contatos():
-    pass
+def remover_contatos(c):
+    if existe_contato(c.id):
+        lista_contatos.remove(c)
+        return True
+    else:
+        return False
+    
 
 def listar_contatos():
     return lista_contatos
