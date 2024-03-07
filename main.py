@@ -1,4 +1,4 @@
-from controlador_contato import (cadastrar_contatos, editar_contatos, listar_contatos, remover_contatos, pesquisar_contatos)
+from controlador_contato import (cadastrar_contatos, editar_contatos, listar_contatos, remover_contatos, pesquisar_contatos, existe_contato)
 from contato import Contato
 from time import sleep
 
@@ -63,7 +63,28 @@ try:
                 
                 if continuar == 'n':
                     break
+        elif escolha == 2:
+            while True:
+                print("= Editar contatos")
+                linha()
+                sleep(1)
+                id_alterar = int(input("Digite o id do contato que deseja alterar: "))
                 
+                for c in listar_contatos():
+                    if existe_contato(id_alterar):
+                        if c.id == id_alterar:
+                            print(f"O contato que deseja alterar é {c.nome}.")
+                            c.id = int(input("ID: "))
+                            c.nome = str(input("Nome: "))
+                            c.telefone = str(input("Telefone: "))
+                            c.email = str(input("Email: "))
+                            
+                            editar_contatos(c)
+                    
+                continuar = str(input("Alterar mais algum contato(S/N)? ")).lower()
+                
+                if continuar == "n":
+                    break    
         continuar = str(input("Deseja continuar usando o programa(S/N)?\n")).lower()
         linha()
         sleep(1)
